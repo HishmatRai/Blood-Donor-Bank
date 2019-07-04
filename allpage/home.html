@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- footer -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="footer, address, phone, icons" />
+  <link rel="stylesheet" href="./../css/demo.css">
+  <link rel="stylesheet" href="./../css/footer-distributed-with-address-and-phones.css">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <!-- ******************************** -->
+  <link rel="icon" type="./../image/jpg" href="./../images/Hand__5-512.png">
+  <!-- ******************* Sweet alert ********************** -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- ***************************** firebase ****************************** -->
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCPkN2eyd4GjrIrjTGhQ4zPfO97V3r2Szc",
+      authDomain: "bloodbank-294ce.firebaseapp.com",
+      databaseURL: "https://bloodbank-294ce.firebaseio.com",
+      projectId: "bloodbank-294ce",
+      storageBucket: "bloodbank-294ce.appspot.com",
+      messagingSenderId: "680948449424",
+      appId: "1:680948449424:web:0bd57e88c89ba885"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>BloodBank-Home</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./../css/blog-post.css" rel="stylesheet">
+  <link rel="stylesheet" href="./../css/home.css" type="text/css">
+
+</head>
+
+<body style="margin-top: 651px;">
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <video autoplay muted loop id="myVideo">
+    <source src="./../video/WHO- Give the gift of life, donate blood (World Blood Donor Day 2013).mp4" type="video/mp4">
+  </video>
+
+  <div class="content">
+    <button id="myBtn1" class="btn btn-secondary" onclick="myFunction()">Pause</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span style="color: red;font-weight: bold">Blood</span>Bank
+        <img src="./../images/Hand__5-512.png" style="width: 25px">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="myaccount.html">My Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./alldoners.html">All Doners</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" class="btn btn-info btn-lg" id="logout" onclick="logout()">
+              <span class="glyphicon glyphicon-log-out"></span> Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-8">
+
+
+
+
+
+        <hr>
+        <center>
+          <marquee behavior="" direction="">
+            <span>
+              Donate Blood & Save A Life.....
+              We celebrate World Blood Donor Day on 14 June every year. It was established across the countries in
+              2004, to spread the awareness for need to donate blood and thank the blood donors for their selfless
+              work. These blood donation quotes will motivate you to donate blood and save somebody’s life. Be a
+              hero, A real hero in someone’s life. There are various myths surrounding the blood donation activities.
+              Actual awareness and right information can really benefit both the donor and recipient. Come forward
+              and join the hands in this initiative.
+              <hr>
+            </span>
+
+
+          </marquee>
+
+          <img src="./../images/down-arrow-gif-101682.gif" alt="" width="10%">
+          <!-- Date/Time -->
+          <p class="colorRed">DONATE BLOOD
+            & SAVE A LIFE.
+            <!-- blood group -->
+            <p id="result"></p>
+
+            <select id="country" style="height: 39px;">
+              <option value="Not Selected">-- Select Blood Group --</option>
+              <option value="A-">A-</option>
+              <option value="A+">A+</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O-">O-</option>
+              <option value="O+">O+</option>
+              <option value="AB-">AB-</option>
+              <option value="AB+">AB+</option>
+            </select>
+            <input type="button" id="donateNowB" value="Donate Now!" class="btn btn-secondary" onclick="donateBtn()">
+          </p>
+        </center>
+
+        <hr>
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="./../images/Blood-donations-780x520.jpg" alt="">
+
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead" style="color: red">Who are the blood donors?</p>
+
+        <p>Most blood donors are volunteers. But you may also donate blood several weeks before having surgery. This is
+          so that your blood is available in case you need a transfusion. Donating blood for yourself is called an
+          autologous donation.</p>
+        <h5>Volunteer blood donors must meet certain criteria. These include:</h5>
+
+        <p>🔴 Must be at least 16 years of age, or the minimum age set by state law </p>
+        <p>🔴 Must be in good health </p>
+        <p>🔴weight is between 50kg to 160kg. </p>
+        <p>🔴 Must pass the physical and health history exam given before donation </p>
+        <p>Some states let people younger than 16 or 17 years to donate blood, with parental consent.</p>
+        <hr>
+
+
+        <img class="img-fluid rounded" src="./../images/donationChart.png" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead" style="color: red">What are the blood types?</p>
+
+        <p>According to the AABB, blood types make up the following portions of the U.S. population:</h5>
+
+          <p>🔴 O Rh-positive - 39% </p>
+          <p>🔴 A Rh-positive - 30% </p>
+          <p>🔴 B Rh-positive - 9% </p>
+          <p>🔴 O Rh-negative - 9% </p>
+          <p>🔴 A Rh-negative - 6%</p>
+          <p>🔴 AB Rh-positive - 4% </p>
+          <p>🔴 B Rh-negative - 2% </p>
+          <p>🔴 AB Rh-negative - 1%</p>
+          <hr>
+
+
+
+          <img class="img-fluid rounded" src="./../images/MByUZ3A41aPZFWU5Nc6d.jpg" alt="">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead" style="color: red">What are the components of blood?</p>
+
+          <p>Blood or one of its components may be transfused. Each component serves many functions.</h5>
+
+            <p>🔴 <span style="font-weight: bold"> Red blood cells.</span> These cells carry oxygen to the tissues in
+              the body. They are commonly used to treat anemia </p>
+            <p>🔴 <span style="font-weight: bold"> Platelets.</span> They help the blood clot. They are used to treat
+              leukemia and other forms of cancer. </p>
+            <p>🔴 <span style="font-weight: bold">White blood cells. </span> This is a type of white blood cell that
+              helps fight infection. It helps in the immune process. </p>
+            <p>🔴 <span style="font-weight: bold"> Plasma.</span> This is the watery, liquid part of the blood. Red
+              blood cells, white blood cells, and platelets are a part of this liquid. Plasma is needed to carry the
+              many parts of the blood through the bloodstream. Plasma serves many function. It is generally transfused
+              to replace blood-clotting proteins. </p>
+            <p>🔴 <span style="font-weight: bold ">Cryoprecipitate AHF. </span> The party of the plasma that contains
+              clotting factors that help control bleeding. </p>
+            <h4>Albumin, immune globulins, and clotting-factors may also be separated and processed for transfusions.
+
+            </h4>
+            <hr>
+
+      </div>
+
+      <div class="col-md-4">
+        <div class="card my-4">
+          <h5 class="card-header" style="text-align: center;color: red">Available All Doners</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <h1 style="margin-left: 120px;" id="all">0</h1>
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+                <div class="card my-3">
+              <h1 class="allGroup card-header" style="text-align:center;color: red">A +ve</h1>
+              <div class="input-group">
+              <h1 style="margin-left: 120px;" id="A+">0</h1>
+              </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">A -ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="A-">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/A-.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="A-">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">B -ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="B-">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/B-.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="B-">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">B +ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="B+">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/B+.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="B+">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">O -ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="O-">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/O-.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="O-">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">O +ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="O+">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/O+.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="O+">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">AB -ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="AB-">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/AB-.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="AB-">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+        <div class="card my-4 cardHov">
+            <div class="card-body">
+              <div class="input-group">
+                  <div class="card my-3">
+                <h1 class="allGroup card-header" style="text-align:center;color: red">AB +ve</h1>
+                <div class="input-group">
+                <h1 style="margin-left: 120px;" id="AB+">0</h1>
+                </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- <div class="card my-4 cardHov">
+          <div class="card-body">
+            <div class="input-group">
+              <img src="./../images/AB+.png" alt="" class="allGroup">
+              <h1 style="margin-left: 120px;" id="AB+">0</h1>
+
+            </div>
+          </div>
+        </div> -->
+
+        <div class="card my-4">
+          <img src="./../images/custom.jpg" alt="">
+        </div>
+
+        <div class="card my-4">
+          <img src="./../images/lofile-xy8c8f.jpg" alt="">
+
+        </div>
+
+
+        <div class="card my-4">
+            <img src="./../images/images178.jpg" alt="">
+  
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="footer-distributed">
+
+    <div class="footer-left">
+
+
+      <p class="footer-links">
+        <a href="./home.html">Home</a>
+        ·
+        <a href="./myaccount.html">My Account</a>
+        ·
+        <a href="alldoners.html">All Doners</a>
+      </p>
+
+      <p class="footer-company-name">Copyright &copy; 2019</p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>73-A CB Socity</span> Badharabad, Karachi</p>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>0332-2404609<br>0346-0857289</p>
+      </div>
+
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:hishmatrai007@outlook.com">hishmatrai007@outlook.com</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+
+      <p class="footer-company-about">
+        Degsined By Hishamt Rai Saylani Thar Student B-1
+      </p>
+
+      <div class="footer-icons">
+
+        <a href="https://www.facebook.com/hishmatrai.kounralai" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/Hishmatrai112" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/hishmat-rai-meghwar-787737170/" target="_blank"><i
+            class="fa fa-linkedin"></i></a>
+        <a href="https://wa.me/923460857289" target="_blank"><i class="fa fa-phone"></i></a>
+
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  </footer>
+
+
+</body>
+<!-- Bootstrap core JavaScript -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="./../js/home.js"></script>
+
+</html>

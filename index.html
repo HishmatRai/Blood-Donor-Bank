@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ***************************** firebase ****************************** -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCPkN2eyd4GjrIrjTGhQ4zPfO97V3r2Szc",
+    authDomain: "bloodbank-294ce.firebaseapp.com",
+    databaseURL: "https://bloodbank-294ce.firebaseio.com",
+    projectId: "bloodbank-294ce",
+    storageBucket: "bloodbank-294ce.appspot.com",
+    messagingSenderId: "680948449424",
+    appId: "1:680948449424:web:0bd57e88c89ba885"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/jpg" href="./images/Hand__5-512.png">
+    <title>index</title>
+    <style>
+    @media (max-width: 600px) {
+  #loader {
+    /* min-width: 768px; */
+    width: 300px;
+    margin: auto
+  } }</style>
+</head>
+<body>
+    <center>
+        <img src="./images/blood-donate.gif" id="loader">
+    </center>
+</body>
+<script src="./js/app.js"></script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ***************************** firebase ****************************** -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCPkN2eyd4GjrIrjTGhQ4zPfO97V3r2Szc",
+            authDomain: "bloodbank-294ce.firebaseapp.com",
+            databaseURL: "https://bloodbank-294ce.firebaseio.com",
+            projectId: "bloodbank-294ce",
+            storageBucket: "bloodbank-294ce.appspot.com",
+            messagingSenderId: "680948449424",
+            appId: "1:680948449424:web:0bd57e88c89ba885"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpg" href="./../images/Hand__5-512.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BloodBank-EditAccount</title>
+    <!-- ***************************** Edit Data css ***************************************-->
+    <link rel="stylesheet" href="./../login/css/style.css">
+</head>
+
+<body>
+    <!-- ************************************* Edit Data ************************************************ -->
+
+    <div class="wrapper" style="background-image: url('images/bg-registration-form-2.jpg');">
+        <div class="inner">
+            <form action="">
+                <h3 di="heading">Edit Profile</h3>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Full Name<span id="fullNameText" class="requiredField"></span></label>
+                        <input type="text" class="form-control" id="fullName" required="">
+                        <p id="fullNameText" class="requiredField"></p>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Age<span id="ageText" class="requiredField"></span></label>
+                        <input type="number" class="form-control" id="age" required="">
+
+
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <label for="">Contact Number <span id="numberText" class="requiredField"></span></label>
+                    <input type="number" class="form-control" id="contact" required="">
+
+
+                </div>
+                <div class="form-wrapper">
+                    <label for="">City <span id="cityText" class="requiredField"></span></label>
+                    <input type="text" class="form-control" id="city" required="">
+
+
+                </div>
+                <div class="form-wrapper">
+                    <label for="">Address <span id="addressText" class="requiredField"></span></label>
+                    <input type="text" class="form-control" id="address" required="">
+
+                </div>
+                <div class="form-wrapper">
+                    <label for="">Blood Group <span id="addressText" class="requiredField"></span></label>
+                    <!-- <input type="text" class="form-control" id="address" required=""> -->
+                    <select name="" id="country" class="form-control">
+                        <option value="" selected="selected">
+                            SELECT YOUR BLOOD GROUP</option>
+                        <option value="A-">A-</option>
+                        <option value="A+">A+</option>
+                        <option value="B-">B-</option>
+                        <option value="B+">B+</option>
+                        <option value="O-">O-</option>
+                        <option value="O+">O+</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div class="form-wrapper">
+                    <label for="">Profile Picture <span id="fileText" class="requiredField"></span></label>
+                    <input type="file" class="form-control" id="imageUpload" required="">
+
+
+                </div>
+                <p id="showError"></p>
+
+                <input type="button" class="allBTn" id="update" value="update profile">
+                <input type="button" class="allBTn" id="back" value="🔙 Back">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="edit.js"></script>
+
+</html>

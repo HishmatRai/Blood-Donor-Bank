@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- *************************************  *********footer links*************************************** -->
+
+  <link rel="stylesheet" href="./../css/demo.css">
+  <link rel="stylesheet" href="./../css/footer-distributed-with-address-and-phones.css">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <!-- ************************************************* search ********************************************** -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="icon" type="image/jpg" href="./../images/Hand__5-512.png">
+  <!-- ************************************************ sweet alert **************************************** -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- ***************************** firebase ****************************** -->
+
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCPkN2eyd4GjrIrjTGhQ4zPfO97V3r2Szc",
+      authDomain: "bloodbank-294ce.firebaseapp.com",
+      databaseURL: "https://bloodbank-294ce.firebaseio.com",
+      projectId: "bloodbank-294ce",
+      storageBucket: "bloodbank-294ce.appspot.com",
+      messagingSenderId: "680948449424",
+      appId: "1:680948449424:web:0bd57e88c89ba885"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>BloodBank-AllDoners</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/blog-post.css" rel="stylesheet">
+  <link rel="stylesheet" href="./../css/alldoners.css" type="text/css">
+
+</head>
+
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span style="color: red;font-weight: bold">Blood</span>Bank
+        <img src="./../images/Hand__5-512.png" style="width: 25px">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./home.html">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="myaccount.html">My Account</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./alldoners.html">All Doners</a>
+            <span class="sr-only">(current)</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" class="btn btn-info btn-lg" id="logout" onclick="logout()">
+              <span class="glyphicon glyphicon-log-out"></span> Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- *************** search blood group***************************** -->
+  <div style="border-bottom:1px solid red;margin-right: 30px ;margin-left: 30px">
+
+<h1>rre</h1>
+    <h1 style="text-align: center;color:red">Search Blood Group</h1>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search Blood Group..." id="SrchBloodGroup">
+          <a href="#" class="search_icon" id="searchBloodGroup"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ****************************************** search location *************************************** -->
+
+  <div style="border-bottom:1px solid red;margin-right: 30px ;margin-left: 30px">
+
+
+    <h1 style="text-align: center;color:red">Search Location</h1>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search Blood Group..." id="searchLocation">
+          <a href="#" class="search_icon" id="searchLocation1"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************* search blood group you can accept form which user************************************** -->
+
+  <div style="border-bottom:1px solid red;margin-right: 30px ;margin-left: 30px">
+
+
+    <h1 style="text-align: center;color:red">You can Accept</h1>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search Blood Group..." id="bloodGroup">
+          <a href="#" class="search_icon" id="youCanDonate"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page Content -->
+  <center>
+
+    <div id="loading">
+
+      <img src="./../images/1_W8cj-FRc58UozzcMWqVPZw.gif" alt="">
+    </div>
+  </center>
+  <div class="container">
+
+    <div class="row">
+
+      <div id="requestCard">
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  </div>
+  <!-- ************************************* footer *************************************** -->
+
+  <footer class="footer-distributed">
+
+    <div class="footer-left">
+
+
+      <p class="footer-links">
+        <a href="./home.html">Home</a>
+        ·
+        <a href="./myaccount.html">My Account</a>
+        ·
+        <a href="alldoners.html">All Doners</a>
+      </p>
+
+      <p class="footer-company-name">Copyright &copy; 2019</p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>73-A CB Socity</span> Badharabad, Karachi</p>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>0332-2404609<br>0346-0857289</p>
+      </div>
+
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:hishmatrai007@outlook.com">hishmatrai007@outlook.com</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+
+      <p class="footer-company-about">
+        Degsined By Hishamt Rai Saylani Thar Student B-1
+      </p>
+
+      <div class="footer-icons">
+
+        <a href="https://www.facebook.com/hishmatrai.kounralai" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/Hishmatrai112" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/hishmat-rai-meghwar-787737170/" target="_blank"><i
+            class="fa fa-linkedin"></i></a>
+        <a href="https://wa.me/923460857289" target="_blank"><i class="fa fa-phone"></i></a>
+
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  </footer>
+
+</body>
+<!-- Bootstrap core JavaScript -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="./../js/alldoners.js"></script>
+
+</html>
